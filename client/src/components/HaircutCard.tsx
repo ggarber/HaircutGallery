@@ -1,12 +1,14 @@
 import { getHaircutPlaceholder } from "@/lib/placeholders";
+import { Badge } from "@/components/ui/badge";
 
 interface HaircutCardProps {
   name: string;
   tags: string[];
   imageIndex: number;
+  onTagClick?: (tag: string) => void;
 }
 
-export default function HaircutCard({ name, tags, imageIndex }: HaircutCardProps) {
+export default function HaircutCard({ name, tags, imageIndex, onTagClick }: HaircutCardProps) {
   const placeholderSvg = getHaircutPlaceholder(imageIndex);
 
   return (
@@ -18,12 +20,14 @@ export default function HaircutCard({ name, tags, imageIndex }: HaircutCardProps
         <h3 className="font-semibold text-lg mb-2">{name}</h3>
         <div className="flex flex-wrap gap-2 mb-2">
           {tags.map((tag, index) => (
-            <span 
+            <Badge 
               key={index} 
-              className="tag bg-neutral-100 text-neutral-600 px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 hover:scale-105"
+              variant="secondary"
+              className="cursor-pointer hover:bg-secondary/80"
+              onClick={() => onTagClick && onTagClick(tag)}
             >
               {tag}
-            </span>
+            </Badge>
           ))}
         </div>
       </div>
