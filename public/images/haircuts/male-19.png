@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+      <rect width="1024" height="1024" fill="#e6f2ff"/>
+      <rect x="262" y="162" width="500" height="700" fill="#d1e6ff"/>
+      <circle cx="512" cy="350" r="150" fill="#b3d1ff"/>
+      <rect x="437" y="500" width="150" height="250" fill="#b3d1ff"/>
+      <text x="512" y="810" font-family="Arial" font-size="48" text-anchor="middle" fill="#333333" font-weight="bold">Man Bun</text>
+      <text x="512" y="870" font-family="Arial" font-size="32" text-anchor="middle" fill="#666666">male, Modern, Long</text>
+    </svg>

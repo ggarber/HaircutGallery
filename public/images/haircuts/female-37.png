@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+      <rect width="1024" height="1024" fill="#fff0f5"/>
+      <rect x="262" y="162" width="500" height="700" fill="#ffe6f2"/>
+      <circle cx="512" cy="350" r="150" fill="#ffcceb"/>
+      <rect x="437" y="500" width="150" height="250" fill="#ffcceb"/>
+      <text x="512" y="810" font-family="Arial" font-size="48" text-anchor="middle" fill="#333333" font-weight="bold">Butterfly Cut</text>
+      <text x="512" y="870" font-family="Arial" font-size="32" text-anchor="middle" fill="#666666">female, Modern, Long</text>
+    </svg>

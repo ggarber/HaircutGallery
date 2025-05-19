@@ -21,13 +21,24 @@ export default function HaircutCard({ name, tags, imageIndex, gender, id, onTagC
   useEffect(() => {
     const checkImage = async () => {
       try {
-        const imagePath = `/images/haircuts/${gender}-${id}.png`;
-        const response = await fetch(imagePath, { method: 'HEAD' });
-        if (response.ok) {
-          setImageUrl(imagePath);
-        } else {
-          setImageUrl(null);
+        // Try both .png and .jpg extensions
+        const extensions = ['.png', '.jpg', '.jpeg'];
+        
+        for (const ext of extensions) {
+          const imagePath = `/images/haircuts/${gender}-${id}${ext}`;
+          try {
+            const response = await fetch(imagePath, { method: 'HEAD' });
+            if (response.ok) {
+              setImageUrl(imagePath);
+              return; // Exit if we find a valid image
+            }
+          } catch (e) {
+            // Continue to next extension
+          }
         }
+        
+        // If we get here, no valid image was found
+        setImageUrl(null);
       } catch (error) {
         setImageUrl(null);
       }
