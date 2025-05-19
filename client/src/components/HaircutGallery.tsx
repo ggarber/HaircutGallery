@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import GenderToggle from "./GenderToggle";
 import HaircutCard from "./HaircutCard";
-import GenerateImagesButton from "./GenerateImagesButton";
 import { maleHaircuts, femaleHaircuts, tagCategories } from "@/data/haircuts";
 import { Badge } from "@/components/ui/badge";
 import { X } from "lucide-react";
@@ -54,12 +53,7 @@ export default function HaircutGallery() {
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-2">Trendy Haircut Styles</h1>
         <p className="text-neutral-600 text-center mb-8">Discover popular haircut styles for all preferences</p>
         
-        <div className="flex flex-col items-center gap-4">
-          <GenderToggle active={activeGender} onChange={handleGenderToggle} />
-          
-          {/* Generate images button */}
-          <GenerateImagesButton />
-        </div>
+        <GenderToggle active={activeGender} onChange={handleGenderToggle} />
         
         {/* Selected tags display */}
         {selectedTags.length > 0 && (
