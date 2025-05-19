@@ -100,9 +100,11 @@ export default function HaircutGallery() {
           filteredHaircuts.map((haircut) => (
             <HaircutCard 
               key={haircut.id} 
+              id={haircut.id}
               name={haircut.name} 
               tags={haircut.tags} 
               imageIndex={haircut.imageIndex}
+              gender={haircut.gender}
               onTagClick={toggleTag}
             />
           ))

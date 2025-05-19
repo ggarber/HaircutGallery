@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { getHaircutPlaceholder } from "@/lib/placeholders";
 import { Badge } from "@/components/ui/badge";
 
@@ -5,16 +6,50 @@ interface HaircutCardProps {
   name: string;
   tags: string[];
   imageIndex: number;
+  gender: "male" | "female";
+  id: number;
   onTagClick?: (tag: string) => void;
 }
 
-export default function HaircutCard({ name, tags, imageIndex, onTagClick }: HaircutCardProps) {
+export default function HaircutCard({ name, tags, imageIndex, gender, id, onTagClick }: HaircutCardProps) {
   const placeholderSvg = getHaircutPlaceholder(imageIndex);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [imageLoading, setImageLoading] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  // Check if the image exists in the public folder
+  useEffect(() => {
+    const checkImage = async () => {
+      try {
+        const imagePath = `/images/haircuts/${gender}-${id}.png`;
+        const response = await fetch(imagePath, { method: 'HEAD' });
+        if (response.ok) {
+          setImageUrl(imagePath);
+        } else {
+          setImageUrl(null);
+        }
+      } catch (error) {
+        setImageUrl(null);
+      }
+    };
+
+    checkImage();
+  }, [gender, id]);
 
   return (
     <div className="haircut-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
-      <div className="w-full h-64 bg-neutral-200 flex items-center justify-center overflow-hidden">
-        {placeholderSvg}
+      <div className="w-full h-64 bg-neutral-200 flex items-center justify-center overflow-hidden relative">
+        {imageUrl ? (
+          <img 
+            src={imageUrl} 
+            alt={`${name} hairstyle`} 
+            className="w-full h-full object-cover"
+            onError={() => setImageError(true)}
+            style={{ display: imageError ? 'none' : 'block' }}
+          />
+        ) : null}
+        
+        {(!imageUrl || imageError) && placeholderSvg}
       </div>
       <div className="p-4">
         <h3 className="font-semibold text-lg mb-2">{name}</h3>

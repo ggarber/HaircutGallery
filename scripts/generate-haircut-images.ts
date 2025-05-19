@@ -10,7 +10,9 @@ import OpenAI from "openai";
 dotenv.config();
 
 // Set up OpenAI client
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const apiKey = process.env.OPENAI_API_KEY;
+console.log("API Key available:", !!apiKey);
+const openai = new OpenAI({ apiKey });
 
 // Get the current directory
 const __filename = fileURLToPath(import.meta.url);
@@ -58,6 +60,10 @@ async function generateHaircutImage(haircut: any): Promise<void> {
       quality: "standard",
     });
     
+    if (!response.data || response.data.length === 0) {
+      throw new Error('No image data returned from API');
+    }
+    
     const imageUrl = response.data[0].url;
     if (!imageUrl) {
       throw new Error('No image URL returned from API');
@@ -79,7 +85,7 @@ async function generateHaircutImage(haircut: any): Promise<void> {
     };
     saveGeneratedImages(generatedImages);
     
-  } catch (error) {
+  } catch (error: any) {
     console.error(`Error generating image for ${haircut.name}:`, error);
   }
 }
