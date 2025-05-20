@@ -21,6 +21,7 @@ const FeedbackButton: React.FC = () => {
       className="w-[30px] h-[30px]"
     >
       <path d="M20 2H4C2.9 2 2 2.9 2 4V18C2 19.1 2.9 20 4 20H18L22 24V4C22 2.9 21.1 2 20 2ZM20 18L18 16H4V4H20V18Z" />
+      <text x="12" y="13" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">?</text>
     </svg>
     </button>
   );
