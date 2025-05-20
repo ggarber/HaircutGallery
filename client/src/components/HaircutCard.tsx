@@ -17,6 +17,12 @@ export default function HaircutCard({ name, tags, imageIndex, gender, id, onTagC
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 
+  // Create Google Images search URL
+  const getGoogleImagesUrl = () => {
+    const searchQuery = `${name} ${gender} haircut`;
+    return `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}&tbm=isch`;
+  };
+
   // Try loading image with proper path
   useEffect(() => {
     const loadImage = async () => {
@@ -89,6 +95,17 @@ export default function HaircutCard({ name, tags, imageIndex, gender, id, onTagC
               {tag}
             </Badge>
           ))}
+        </div>
+        
+        <div className="flex justify-end mt-3">
+          <a 
+            href={getGoogleImagesUrl()} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm text-primary hover:text-primary/80 transition-colors font-medium"
+          >
+            Real Examples →
+          </a>
         </div>
       </div>
     </div>
