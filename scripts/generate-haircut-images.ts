@@ -27,10 +27,8 @@ if (!fs.existsSync(imagesDir)) {
 
 // Function to generate image prompt for a haircut
 function generatePrompt(name: string, gender: 'male' | 'female', tags: string[]): string {
-  const lengthTag = tags.find(tag => ["Short", "Medium", "Long"].includes(tag)) || "";
-  const styleTag = tags.find(tag => ["Classic", "Modern"].includes(tag)) || "";
   
-  return `A professional, realistic photo of a ${gender} model with a ${lengthTag.toLowerCase()} ${name} hairstyle. ${styleTag} style. Clear focus on the hair, fashion photoshoot quality, neutral studio background, photorealistic.`;
+  return `A professional, realistic photo of a ${gender} model with a ${name} hairstyle. Clear focus on the hair, show the complete head, fashion photoshoot quality, neutral studio background, photorealistic.`;
 }
 
 // Function to download an image from a URL

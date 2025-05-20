@@ -1,5 +1,6 @@
 import HaircutGallery from "@/components/HaircutGallery";
 import { Helmet } from "react-helmet";
+import FeedbackButton from '../components/FeedbackButton';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Helmet>
       <div className="min-h-screen bg-gray-50">
         <HaircutGallery />
+        <FeedbackButton />
       </div>
     </>
   );

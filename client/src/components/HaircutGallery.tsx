@@ -34,10 +34,10 @@ export default function HaircutGallery() {
       // If no tags selected, show all haircuts
       setFilteredHaircuts(haircuts);
     } else {
-      // Filter haircuts that have all selected tags
+      // Filter haircuts that have any of the selected tags
       setFilteredHaircuts(
         haircuts.filter(haircut => {
-          return selectedTags.every(tag => haircut.tags.includes(tag));
+          return selectedTags.some(tag => haircut.tags.includes(tag));
         })
       );
     }

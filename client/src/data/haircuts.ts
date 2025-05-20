@@ -116,7 +116,7 @@ export const maleHaircuts: Haircut[] = [
   {
     id: 16,
     name: "Bro Flow",
-    tags: ["Modern", "Medium"],
+    tags: ["Modern", "Long"],
     imageIndex: 3,
     gender: "male"
   },
@@ -246,7 +246,7 @@ export const femaleHaircuts: Haircut[] = [
   {
     id: 34,
     name: "Wolf Cut",
-    tags: ["Modern", "Medium"],
+    tags: ["Modern", "Short"],
     imageIndex: 1,
     gender: "female"
   },
@@ -267,7 +267,7 @@ export const femaleHaircuts: Haircut[] = [
   {
     id: 37,
     name: "Butterfly Cut",
-    tags: ["Modern", "Long"],
+    tags: ["Modern", "Medium"],
     imageIndex: 0,
     gender: "female"
   },
